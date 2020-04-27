@@ -32,7 +32,7 @@ while True:
         # minNeighbors:	Parameter specifying how many neighbors each candidate rectangle should have to retain it
         # minSize:		Minimum possible object size. Objects smaller than that are ignored
         faces = faceCascade.detectMultiScale(
-            gray_frame, scaleFactor	 = 1.1, minNeighbors = 5,
+            gray_frame, scaleFactor = 1.1, minNeighbors = 5,
             minSize	= (30, 30))
 
         prediction = None
