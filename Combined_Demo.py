@@ -137,41 +137,16 @@ while True:
 
                 count = 0
 
-                top_1_prediction = EMOTIONS[np.argmax(prediction)]
                 face_pred = CHARACTER_FACES[np.argmax(prediction2)]
                 pred_str = top_1_prediction + " " + face_pred
                 #print(pred_str)
 
-                combined = top_1_prediction + " " + face_pred
-
-            #TODO Replace this with a dictionary
-            if top_1_prediction != "":
-                emo_list += 1
-            if top_1_prediction == "Anger":
-                anger += 1
-            if top_1_prediction == "Disgust":
-                disgust += 1
-            if top_1_prediction == "Fear":
-                fear += 1
-            if top_1_prediction == "Happiness":
-                happy += 1
-            if top_1_prediction == "Sadness":
-                sad += 1
-            if top_1_prediction == "Surprise":
-                surp += 1
-            if top_1_prediction == "Neutral":
-                neutral += 1
 
             cv2.putText(frame, combined, (x, y + (h + 50)), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1,
                         cv2.LINE_AA)
             count += 1
 
         frame = cv2.resize(frame, (800, 500))
-
-        ratio = ("anger " + str(safe_div(emo_list, anger)) + "% disgust " + str(safe_div(emo_list, disgust)) + "% fear " +
-                 str(safe_div(emo_list, fear)) + "% happiness " + str(safe_div(emo_list, happy)) + "% sad " +
-                 str(safe_div(emo_list, sad)) + "% surprise " + str(safe_div(emo_list, surp)) + "% neutral " +
-                 str(safe_div(emo_list, neutral)) + "%")
 
         cv2.putText(img=frame, text=ratio, org=(16, 12), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=.5,
                     color=(0, 255, 0), thickness=1)
